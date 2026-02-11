@@ -1,74 +1,73 @@
-import React, { useState } from 'react';
-import DoctorCard from '../components/DoctorCard';
-import { Search, Filter } from 'lucide-react';
+import React from 'react';
+import { Calendar, Award, Star, GraduationCap, MapPin } from 'lucide-react';
+import Button from '../components/Button';
 
 const Doctors = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filterSpecialty, setFilterSpecialty] = useState('All');
-
-    const doctors = [
-        { name: 'Dr. Sarah Wilson', specialty: 'Cardiologist', rating: '4.9', location: 'Main Block, Floor 2', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-        { name: 'Dr. James Anderson', specialty: 'Neurologist', rating: '4.8', location: 'Neuro Wing, Floor 3', image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-        { name: 'Dr. Emily Chen', specialty: 'Pediatrician', rating: '5.0', location: 'Pediatric Center', image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-        { name: 'Dr. Michael Brown', specialty: 'Orthopedics', rating: '4.7', location: 'Ortho Wing, Floor 1', image: 'https://images.unsplash.com/photo-1622253692010-333188c1c63b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-        { name: 'Dr. Linda Martinez', specialty: 'Dermatologist', rating: '4.9', location: 'Skin Center', image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-        { name: 'Dr. Robert Taylor', specialty: 'Cardiologist', rating: '4.8', location: 'Main Block, Floor 2', image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-    ];
-
-    const specialties = ['All', ...new Set(doctors.map(d => d.specialty))];
-
-    const filteredDoctors = doctors.filter(doc => {
-        const matchesSearch = doc.name.toLowerCase().includes(searchTerm.toLowerCase()) || doc.specialty.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesFilter = filterSpecialty === 'All' || doc.specialty === filterSpecialty;
-        return matchesSearch && matchesFilter;
-    });
-
   return (
-    <div className="pt-10 pb-20 bg-slate-50 min-h-screen">
-        <section className="bg-white py-12 mb-12 shadow-sm">
-            <div className="container-custom">
-                <h1 className="text-3xl font-bold text-gray-900 mb-8">Find a Doctor</h1>
-                
-                <div className="flex flex-col md:flex-row gap-4">
-                    <div className="relative flex-grow">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-                        <input 
-                            type="text" 
-                            placeholder="Search by name or specialty..." 
-                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                    </div>
-                    
-                    <div className="relative min-w-[200px]">
-                        <Filter className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-                        <select 
-                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none bg-white appearance-none"
-                            value={filterSpecialty}
-                            onChange={(e) => setFilterSpecialty(e.target.value)}
-                        >
-                            {specialties.map(spec => (
-                                <option key={spec} value={spec}>{spec}</option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <div className="pt-24 pb-20">
+      <section className="bg-primary-50 py-16 mb-16 text-center">
         <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {filteredDoctors.map((doctor, index) => (
-                    <DoctorCard key={index} {...doctor} />
-                ))}
-            </div>
-            {filteredDoctors.length === 0 && (
-                <div className="text-center py-20 text-gray-500">
-                    <p className="text-xl">No doctors found matching your criteria.</p>
-                </div>
-            )}
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Meet Our Expert</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Gomti Clinic is led by Dr. Amita K. Agarwal, a gold-medalist dermatologist with a passion for clinical and aesthetic excellence.
+          </p>
         </div>
+      </section>
+
+      <div className="container-custom">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
+            {/* Image Side */}
+            <div className="lg:w-2/5 relative">
+                <img 
+                    src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Dr. Amita K. Agarwal" 
+                    className="w-full h-full object-cover min-h-[400px]"
+                />
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                    <h2 className="text-3xl font-bold">Dr. Amita K. Agarwal</h2>
+                    <p className="text-primary-200 font-medium">Dermatologist & Cosmetologist</p>
+                </div>
+            </div>
+
+            {/* Content Side */}
+            <div className="lg:w-3/5 p-8 md:p-12">
+                <div className="flex flex-wrap gap-4 mb-8">
+                    <div className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full font-semibold text-sm flex items-center gap-2">
+                        <GraduationCap size={18} /> MBBS, MD (Dermatology)
+                    </div>
+                    <div className="bg-yellow-50 text-yellow-700 px-4 py-2 rounded-full font-semibold text-sm flex items-center gap-2">
+                        <Star size={18} /> 4.9/5 Patient Rating
+                    </div>
+                    <div className="bg-green-50 text-green-700 px-4 py-2 rounded-full font-semibold text-sm flex items-center gap-2">
+                        <Award size={18} /> 10+ Years Exp.
+                    </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">About Dr. Amita</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                    Dr. Amita K. Agarwal is a distinguished dermatologist specializing in both clinical dermatology and aesthetic procedures. With a strong academic background and years of hands-on experience, she is dedicated to providing evidence-based treatments for skin, hair, and nail concerns.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-8">
+                    She is a member of the Indian Association of Dermatologists, Venereologists and Leprologists (IADVL) and regularly participates in national conferences to stay updated with the latest advancements in dermatology. Her clinic, Gomti Clinic, is equipped with state-of-the-art lasers and technology to ensure the best possible outcomes for her patients.
+                </p>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Areas of Expertise</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
+                    {['Acne & Scar Management', 'Laser Hair Reduction', 'Anti-Aging Therapies', 'Pigmentation Treatment', 'Hair Restoration (PRP)', 'Pediatric Dermatology'].map((item, i) => (
+                        <li key={i} className="flex items-center gap-2 text-gray-700">
+                             <span className="w-2 h-2 bg-primary-500 rounded-full"></span>
+                             {item}
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                     <Button size="lg" icon={Calendar} onClick={() => window.location.href='/booking'}>Book Appointment</Button>
+                     <Button size="lg" variant="outline" onClick={() => window.location.href='/contact'}>Get Directions</Button>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
   );
 };

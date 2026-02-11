@@ -1,95 +1,84 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
-import { Heart, Brain, Bone, Baby, Stethoscope, Microscope, Search, Activity, Eye, Pill, Syringe, Ambulance } from 'lucide-react';
+import { Sparkles, Zap, Droplets, Clock, ShieldCheck, Smile, Sun, UserCheck, Syringe, TestTube, Microscope, HeartPulse } from 'lucide-react';
 
 const Services = () => {
-  const allServices = [
-    { title: 'Cardiology', icon: Heart, description: 'Comprehensive heart care services using the latest technology and treatments.' },
-    { title: 'Neurology', icon: Brain, description: 'Expert diagnosis and treatment for disorders of the nervous system.' },
-    { title: 'Orthopedics', icon: Bone, description: 'Advanced bone and joint care for patients of all ages.' },
-    { title: 'Pediatrics', icon: Baby, description: 'Specialized medical care for infants, children, and adolescents.' },
-    { title: 'General Medicine', icon: Stethoscope, description: 'Primary healthcare services for prevention and treatment of illnesses.' },
-    { title: 'Laboratory', icon: Microscope, description: 'High-tech internal diagnostics offering quick and accurate results.' },
-    { title: 'Radiology', icon: Activity, description: 'State-of-the-art imaging services (MRI, CT, X-Ray) for precise diagnosis.' },
-    { title: 'Checkups', icon: Search, description: 'Comprehensive health screening packages for preventative care.' },
-    { title: 'Ophthalmology', icon: Eye, description: 'Complete eye care ranging from routine exams to complex surgeries.' },
-    { title: 'Pharmacy', icon: Pill, description: '24/7 in-house pharmacy with home delivery options.' },
-    { title: 'Vaccination', icon: Syringe, description: 'Immunization programs for children and adults.' },
-    { title: 'Emergency', icon: Ambulance, description: 'Round-the-clock emergency medical services.' },
+  const aestheticServices = [
+    { title: 'Acne & Scar Treatment', icon: Sparkles, description: 'Customized peels and laser resurfacing for active acne and deep scars.' },
+    { title: 'Laser Hair Removal', icon: Zap, description: 'Full body laser hair reduction using advanced diode technology.' },
+    { title: 'Hydrafacial', icon: Droplets, description: 'Multi-step treatment to cleanse, exfoliate, and hydrate skin.' },
+    { title: 'Anti-Aging & Botox', icon: Syringe, description: 'Botox, fillers, and thread lifts to reduce wrinkles and restore volume.' },
+    { title: 'Skin Whitening', icon: Sun, description: 'Glutathione and laser toning for even skin tone and glow.' },
+    { title: 'PRP Therapy', icon: TestTube, description: 'Platelet-Rich Plasma therapy for hair regrowth and skin rejuvenation.' },
+  ];
+
+  const clinicalServices = [
+    { title: 'Hair Fall Treatment', icon: UserCheck, description: 'Medical management of alopecia and severe hair loss.' },
+    { title: 'Dandruff Treatment', icon: Smile, description: 'Effective solutions for seborrheic dermatitis and scalp issues.' },
+    { title: 'Mole & Wart Removal', icon: ShieldCheck, description: 'Radiofrequency ablation for safe removal of skin growths.' },
+    { title: 'Pigmentation', icon: Microscope, description: 'Treatment for melasma, freckles, and sun spots.' },
+    { title: 'Eczema & Psoriasis', icon: HeartPulse, description: 'Management of chronic skin conditions and allergies.' },
+    { title: 'Nail Surgery', icon: Clock, description: 'Treatment for ingrown toe nails and fungal infections.' },
   ];
 
   return (
-    <div className="pt-10 pb-20">
+    <div className="pt-24 pb-20">
         <section className="bg-primary-50 py-16 mb-16 text-center">
             <div className="container-custom">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Medical Services</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services</h1>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Cutting-edge medical solutions provided by expert specialists.
+                    Comprehensive clinical and aesthetic dermatology services designed for your unique needs.
                 </p>
             </div>
         </section>
 
         <div className="container-custom">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                {allServices.map((service, index) => (
-                    <ServiceCard key={index} {...service} />
-                ))}
+            
+            {/* Aesthetic Services */}
+            <div className="mb-20">
+                <div className="flex items-center gap-4 mb-8">
+                     <div className="bg-purple-100 p-3 rounded-xl text-purple-600">
+                        <Sparkles size={28} />
+                     </div>
+                     <h2 className="text-3xl font-bold text-gray-900">Aesthetic & Laser Treatments</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {aestheticServices.map((service, index) => (
+                        <ServiceCard key={index} {...service} link="/contact" />
+                    ))}
+                </div>
             </div>
 
-            {/* Health Packages / Pricing (Simple Table) */}
-            <div className="mb-12 text-center">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Health Checkup Packages</h2>
-                <p className="text-gray-600">Preventative care designed for your specific needs.</p>
+            {/* Clinical Services */}
+            <div className="mb-20">
+                 <div className="flex items-center gap-4 mb-8">
+                     <div className="bg-blue-100 p-3 rounded-xl text-blue-600">
+                        <LogoMedical size={28} />
+                     </div>
+                     <h2 className="text-3xl font-bold text-gray-900">Clinical Dermatology</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {clinicalServices.map((service, index) => (
+                        <ServiceCard key={index} {...service} link="/contact" />
+                    ))}
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Basic */}
-                <div className="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Basic Health Check</h3>
-                    <p className="text-4xl font-bold text-primary-600 mb-6">$99</p>
-                    <ul className="space-y-3 mb-8 text-gray-600 text-left">
-                        <li>• Complete Blood Count</li>
-                        <li>• Blood Sugar Fasting</li>
-                        <li>• Lipid Profile</li>
-                        <li>• Kidney Function Test</li>
-                        <li>• Doctor Consultation</li>
-                    </ul>
-                    <button className="w-full py-3 rounded-xl border border-primary-600 text-primary-600 font-bold hover:bg-primary-50 transition">Book Now</button>
-                </div>
-                
-                {/* Standard (Featured) */}
-                <div className="border-2 border-primary-500 rounded-2xl p-8 shadow-xl relative scale-105 bg-white">
-                    <div className="absolute top-0 right-0 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Standard Checkup</h3>
-                    <p className="text-4xl font-bold text-primary-600 mb-6">$199</p>
-                    <ul className="space-y-3 mb-8 text-gray-600 text-left">
-                        <li>• All Basic Tests</li>
-                        <li>• Liver Function Test</li>
-                        <li>• Thyroid Profile</li>
-                        <li>• Chest X-Ray</li>
-                        <li>• ECG</li>
-                        <li>• Dental Checkup</li>
-                    </ul>
-                    <button className="w-full py-3 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition shadow-lg">Book Now</button>
-                </div>
-
-                {/* Premium */}
-                <div className="border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Care</h3>
-                    <p className="text-4xl font-bold text-primary-600 mb-6">$350</p>
-                    <ul className="space-y-3 mb-8 text-gray-600 text-left">
-                        <li>• All Standard Tests</li>
-                        <li>• Cardiac Screening (Echo)</li>
-                        <li>• Vitamin Profile</li>
-                        <li>• Cancer Markers</li>
-                        <li>• Dietician Consultation</li>
-                    </ul>
-                    <button className="w-full py-3 rounded-xl border border-primary-600 text-primary-600 font-bold hover:bg-primary-50 transition">Book Now</button>
+            {/* CTA */}
+            <div className="bg-primary-900 rounded-2xl p-12 text-center text-white relative overflow-hidden">
+                <div className="relative z-10">
+                    <h2 className="text-3xl font-bold mb-4">Unsure what you need?</h2>
+                    <p className="text-primary-100 mb-8 max-w-2xl mx-auto">Book a consultation with Dr. Amita K. Agarwal to get a personalized treatment plan for your skin and hair concerns.</p>
+                    <button onClick={() => window.location.href='/booking'} className="bg-white text-primary-900 px-8 py-3 rounded-xl font-bold hover:bg-primary-50 transition">Book Consultation</button>
                 </div>
             </div>
         </div>
     </div>
   );
 };
+
+const LogoMedical = ({size}) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><path d="M12 9v6"/><path d="M9 12h6"/></svg>
+);
 
 export default Services;

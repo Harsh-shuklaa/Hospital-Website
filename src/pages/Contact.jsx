@@ -3,106 +3,120 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import Button from '../components/Button';
 
 const Contact = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert('Thank you for contacting us. We will get back to you shortly.');
+    };
+
     return (
-        <div className="pt-10 pb-20">
-             <section className="bg-primary-50 py-16 mb-20 text-center">
+        <div className="pt-24 pb-20">
+            <section className="bg-primary-50 py-16 mb-16 text-center">
                 <div className="container-custom">
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        We are here to help. Reach out to us for any queries or emergency services.
+                        Have a question or want to book an appointment? Reach out to Gomti Clinic today.
                     </p>
                 </div>
             </section>
 
             <div className="container-custom">
-                <div className="flex flex-col lg:flex-row gap-12">
-                    {/* Info Card */}
-                    <div className="lg:w-1/3 space-y-8">
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                            <h3 className="text-xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-                            
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="bg-primary-50 p-3 rounded-xl text-primary-600">
-                                        <MapPin size={24} />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Our Location</h4>
-                                        <p className="text-gray-600 text-sm mt-1">123 Health Avenue, Medical District,<br />New York, NY 10001</p>
-                                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                    
+                    {/* Contact Info */}
+                    <div>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+                        <div className="space-y-8">
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary-100 p-3 rounded-xl text-primary-600 shrink-0">
+                                    <MapPin size={24} />
                                 </div>
-
-                                <div className="flex items-start gap-4">
-                                    <div className="bg-primary-50 p-3 rounded-xl text-primary-600">
-                                        <Phone size={24} />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Phone Number</h4>
-                                        <p className="text-gray-600 text-sm mt-1">+1 (555) 123-4567</p>
-                                        <p className="text-red-500 text-sm font-bold mt-1">Emergency: 911</p>
-                                    </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900 text-lg mb-1">Visit Us</h3>
+                                    <p className="text-gray-600">
+                                        532C/260A, Church Rd, Vishnupuri,<br />
+                                        Lucknow, Uttar Pradesh 226022
+                                    </p>
+                                    <a href="https://maps.google.com/?q=Gomti+Clinic+Lucknow" target="_blank" rel="noreferrer" className="text-primary-600 font-semibold mt-2 inline-block hover:underline">
+                                        View on Map
+                                    </a>
                                 </div>
+                            </div>
 
-                                <div className="flex items-start gap-4">
-                                    <div className="bg-primary-50 p-3 rounded-xl text-primary-600">
-                                        <Mail size={24} />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-gray-800">Email Address</h4>
-                                        <p className="text-gray-600 text-sm mt-1">info@medicareplus.com</p>
-                                        <p className="text-gray-600 text-sm">support@medicareplus.com</p>
-                                    </div>
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary-100 p-3 rounded-xl text-primary-600 shrink-0">
+                                    <Phone size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900 text-lg mb-1">Call Us</h3>
+                                    <p className="text-gray-600 mb-2">For appointments and queries:</p>
+                                    <a href="tel:+919999999999" className="text-lg font-bold text-gray-900 hover:text-primary-600 transition">
+                                        +91 99999 99999
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary-100 p-3 rounded-xl text-primary-600 shrink-0">
+                                    <Clock size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900 text-lg mb-1">Clinic Hours</h3>
+                                    <p className="text-gray-600">Open 24 Hours</p>
+                                    <p className="text-sm text-gray-500 mt-1">Walk-ins generally accepted, appointments recommended for Dr. Amita.</p>
                                 </div>
                             </div>
                         </div>
 
-                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                             <h3 className="text-xl font-bold text-gray-900 mb-6">Opening Hours</h3>
-                             <ul className="space-y-3">
-                                 <li className="flex justify-between text-sm">
-                                     <span className="text-gray-600">Monday - Friday</span>
-                                     <span className="font-bold text-gray-900">8:00 AM - 9:00 PM</span>
-                                 </li>
-                                 <li className="flex justify-between text-sm">
-                                     <span className="text-gray-600">Saturday</span>
-                                     <span className="font-bold text-gray-900">9:00 AM - 7:00 PM</span>
-                                 </li>
-                                 <li className="flex justify-between text-sm">
-                                     <span className="text-gray-600">Sunday</span>
-                                     <span className="font-bold text-gray-900">9:00 AM - 5:00 PM</span>
-                                 </li>
-                             </ul>
-                         </div>
-                    </div>
-
-                    {/* Form and Map */}
-                    <div className="lg:w-2/3">
-                        <div className="bg-white p-8 md:p-10 rounded-2xl shadow-card border border-gray-100 mb-12">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-100 focus:border-primary-500 outline-none" />
-                                <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-100 focus:border-primary-500 outline-none" />
-                                <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-100 focus:border-primary-500 outline-none" />
-                                <input type="text" placeholder="Subject" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-100 focus:border-primary-500 outline-none" />
-                                <textarea placeholder="Message" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-100 focus:border-primary-500 outline-none h-32 md:col-span-2"></textarea>
-                                <div className="md:col-span-2">
-                                    <Button icon={Send}>Send Message</Button>
-                                </div>
-                            </form>
-                        </div>
-
-                        {/* Map Embed */}
-                        <div className="rounded-2xl overflow-hidden h-80 shadow-md">
+                         {/* Map Embed */}
+                         <div className="mt-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-64">
                             <iframe 
-                                title="Hospital Location"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30596698663!2d-74.25986763304467!3d40.69714941680757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1647250000000!5m2!1sen!2s" 
+                                title="Gomti Clinic Location"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1568285592833!2d80.95764837543884!3d26.898539976655554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399957c5f8555555%3A0x6b4f7e5f8f8f8f8f!2sGomti%20Clinic!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                                 width="100%" 
                                 height="100%" 
-                                style={{ border: 0 }} 
+                                style={{border:0}} 
                                 allowFullScreen="" 
-                                loading="lazy"
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>
                         </div>
+                    </div>
+
+                    {/* Contact Form */}
+                    <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition" required />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition" required />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition" required />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Service Interested In</label>
+                                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition bg-white" required>
+                                    <option value="">Select Treatment</option>
+                                    <option value="Acne">Acne Treatment</option>
+                                    <option value="Hair">Hair Fall / PRP</option>
+                                    <option value="Laser">Laser Hair Removal</option>
+                                    <option value="AntiAging">Anti-Aging</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition" placeholder="Tell us more about your skin concern..."></textarea>
+                            </div>
+                            <Button fullWidth size="lg" icon={Send} type="submit">Send Message</Button>
+                        </form>
                     </div>
                 </div>
             </div>
