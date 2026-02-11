@@ -1,7 +1,14 @@
 import React from 'react';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 const AppointmentForm = () => {
+
+    const navigate = useNavigate();
+    const handleBookClick = () => {
+    navigate('/booking');
+    setIsOpen(false);   
+  };
     return (
         <div className="bg-white rounded-2xl shadow-card p-6 md:p-8 -mt-10 lg:-mt-20 relative z-30 container-custom mx-auto max-w-5xl border border-gray-100">
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center md:text-left">Book Your Consultation</h3>
@@ -29,7 +36,7 @@ const AppointmentForm = () => {
                     type="date" 
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition text-gray-600 text-sm md:text-base"
                 />
-                <Button fullWidth className="md:col-span-2 lg:col-span-1">Confirm</Button>
+                <Button fullWidth className="md:col-span-2 lg:col-span-1" onClick={handleBookClick}>Confirm</Button>
             </form>
         </div>
     );

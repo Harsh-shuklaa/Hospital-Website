@@ -1,8 +1,15 @@
 import React from 'react';
 import { Star, MapPin, Calendar, Clock } from 'lucide-react';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 const DoctorCard = ({ name, specialty, image, rating, location }) => {
+
+    const navigate = useNavigate();
+    const handleBookClick = () => {
+    navigate('/booking');
+    setIsOpen(false);   
+  };
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-card transition-all duration-300 group">
       <div className="relative h-64 overflow-hidden">
@@ -33,7 +40,8 @@ const DoctorCard = ({ name, specialty, image, rating, location }) => {
             {location}
         </div>
 
-        <Button variant="outline" className="w-full !text-primary-600 !border-primary-200 hover:!bg-primary-50" icon={Calendar}>
+        <Button variant="outline" className="w-full !text-primary-600 !border-primary-200 hover:!bg-primary-50" icon={Calendar}
+        onClick={handleBookClick}>
             Book Appointment
         </Button>
       </div>

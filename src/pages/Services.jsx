@@ -1,8 +1,14 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
 import { Sparkles, Zap, Droplets, Clock, ShieldCheck, Smile, Sun, UserCheck, Syringe, TestTube, Microscope, HeartPulse } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Services = () => {
+    const navigate = useNavigate();
+    const handleBookClick = () => {
+    navigate('/booking');
+    setIsOpen(false);   
+  };
   const aestheticServices = [
     { title: 'Acne & Scar Treatment', icon: Sparkles, description: 'Customized peels and laser resurfacing for active acne and deep scars.' },
     { title: 'Laser Hair Removal', icon: Zap, description: 'Full body laser hair reduction using advanced diode technology.' },
@@ -69,7 +75,7 @@ const Services = () => {
                 <div className="relative z-10">
                     <h2 className="text-3xl font-bold mb-4">Unsure what you need?</h2>
                     <p className="text-primary-100 mb-8 max-w-2xl mx-auto">Book a consultation with Dr. Amita K. Agarwal to get a personalized treatment plan for your skin and hair concerns.</p>
-                    <button onClick={() => window.location.href='/booking'} className="bg-white text-primary-900 px-8 py-3 rounded-xl font-bold hover:bg-primary-50 transition">Book Consultation</button>
+                    <button onClick={handleBookClick} className="bg-white text-primary-900 px-8 py-3 rounded-xl font-bold hover:bg-primary-50 transition">Book Consultation</button>
                 </div>
             </div>
         </div>
