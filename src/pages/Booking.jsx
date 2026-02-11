@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import { Calendar, CheckCircle, User, FileText, Clock } from 'lucide-react';
 import Button from '../components/Button';
 
 const Booking = () => {
   const [step, setStep] = useState(1);
   const totalSteps = 4;
+  const navigate = useNavigate();
 
   const nextStep = () => setStep(step < totalSteps ? step + 1 : step);
   const prevStep = () => setStep(step > 1 ? step - 1 : step);
@@ -130,7 +132,7 @@ const Booking = () => {
                             <p className="text-lg text-gray-600 max-w-lg mx-auto mb-8">
                                 Thank you for choosing Gomti Clinic. Your appointment request has been received. We will contact you shortly to confirm your slot.
                             </p>
-                            <Button onClick={() => window.location.href='/'} size="lg">Back to Home</Button>
+                            <Button onClick={() => navigate('/')} size="lg">Back to Home</Button>
                         </div>
                     )}
                 </motion.div>

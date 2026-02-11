@@ -2,8 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Star, Calendar } from 'lucide-react';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+
+    const navigate = useNavigate();
+    const handleBookClick = () => {
+    navigate('/booking');
+    setIsOpen(false);   
+  };
   return (
     <section className="relative bg-gradient-to-b from-primary-50 to-white pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
       <div className="container-custom relative z-10">
@@ -34,7 +41,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button size="lg" icon={Calendar}>Book Appointment</Button>
+              <Button size="lg" icon={Calendar}  onClick={handleBookClick}>Book Appointment</Button>
               <Button size="lg" variant="secondary" onClick={() => window.location.href='tel:+919999999999'}>Call Now</Button>
             </motion.div>
 

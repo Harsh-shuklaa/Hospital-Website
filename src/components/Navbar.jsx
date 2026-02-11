@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone, Calendar, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,16 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  const handleBookClick = () => {
+    navigate('/booking');
+    setIsOpen(false);
+  };
+
+  const handleCallClick = () => {
+    window.location.href = 'tel:+919999999999';
+    setIsOpen(false);
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -62,7 +73,7 @@ const Navbar = () => {
             <span className="text-xs text-gray-500 font-medium">Book Appointment</span>
             <span className="text-sm font-bold text-gray-900">+91 99999 99999</span>
           </div>
-          <Button size="sm" icon={Calendar} className="!rounded-full px-6">Book Now</Button>
+          <Button size="sm" icon={Calendar} className="!rounded-full px-6" onClick={handleBookClick}>Book Now</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -92,8 +103,8 @@ const Navbar = () => {
               ))}
               <hr className="my-2 border-gray-100" />
               <div className="pt-2 flex flex-col gap-3">
-                <Button className="w-full justify-center !rounded-xl" icon={Phone} variant="secondary">Call Clinic</Button>
-                <Button className="w-full justify-center !rounded-xl" icon={Calendar}>Book Consultation</Button>
+                <Button className="w-full justify-center !rounded-xl" icon={Phone} variant="secondary" onClick={handleCallClick}>Call Clinic</Button>
+                <Button className="w-full justify-center !rounded-xl" icon={Calendar} onClick={handleBookClick}>Book Consultation</Button>
               </div>
             </div>
           </motion.div>
